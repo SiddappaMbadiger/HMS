@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HDMS | Doctor Dashboard</title>
+  <link rel="stylesheet" href="docstyle.css">
+</head>
+<body>
+
+<header class="navbar">
+  <h2>HDMS – Doctor Dashboard</h2>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<main class="container">
+
+  <h3>Patient Vitals (Entered by Nurse)</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>BP</th>
+        <th>Heart Rate</th>
+        <th>Temp</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody id="vitalsTable"></tbody>
+  </table>
+
+</main>
+
+<!-- Treatment Popup -->
+<div class="overlay" id="overlay"></div>
+
+<div class="popup" id="treatPopup">
+  <h3>Doctor Treatment</h3>
+
+  <textarea id="diagnosis" placeholder="Diagnosis"></textarea>
+  <textarea id="treatment" placeholder="Treatment"></textarea>
+  <textarea id="medicines" placeholder="Medicines"></textarea>
+  <textarea id="advice" placeholder="Advice"></textarea>
+
+  <button onclick="saveTreatment()">Save Treatment</button>
+  <p id="msg"></p>
+</div>
+
+<script src="doctor.js"></script>
+</body>
+</html>

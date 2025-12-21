@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HDMS | Admin Dashboard</title>
+  <link rel="stylesheet" href="admstyle.css">
+</head>
+<body>
+
+<header class="topbar">
+  <h1>HDMS – Admin Dashboard</h1>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<div class="container">
+
+  <!-- LEFT MENU -->
+  <aside class="sidebar">
+    <ul>
+      <li onclick="showSection('users')">👥 Manage Users</li>
+      <li onclick="showSection('patients')">🧑‍⚕️ View Patients</li>
+      <li onclick="showSection('staff')">🏥 Doctors & Nurses</li>
+      <li onclick="showSection('settings')">⚙️ System Settings</li>
+    </ul>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- USERS -->
+    <section id="users" class="section">
+      <h2>All Users (Patients & Staff)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="usersTable"></tbody>
+      </table>
+    </section>
+
+    <!-- PATIENTS -->
+    <section id="patients" class="section hidden">
+      <h2>Patients & Health Records</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Height</th>
+            <th>Weight</th>
+            <th>Temp</th>
+            <th>Heart Rate</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="patientsTable"></tbody>
+      </table>
+    </section>
+
+    <!-- STAFF -->
+    <section id="staff" class="section hidden">
+      <h2>Doctors & Nurses</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+          </tr>
+        </thead>
+        <tbody id="staffTable"></tbody>
+      </table>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="settings" class="section hidden">
+      <h2>System Settings</h2>
+      <ul class="settings">
+        <li>✔ Patient Registration</li>
+        <li>✔ Appointment Scheduling</li>
+        <li>✔ EHR / EMR Management</li>
+        <li>✔ Billing & Invoicing</li>
+        <li>✔ Pharmacy & Inventory</li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  © 2025 HDMS | Administrator Panel
+</footer>
+
+<script>
+const API = "http://localhost:3000/api";
+
+/* ---------------- SECTION SWITCH ---------------- */
+function showSection(id) {
+  document.querySelectorAll(".section").forEach(s => s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+
+/* ---------------- LOAD USERS ---------------- */
+fetch(API + "/admin/users")
+  .then(res => res.json())
+  .then(data => {
+    const table = document.getElementById("usersTable");
+    data.forEach(u => {
+      table.innerHTML += `
+        <tr>
+          <td>${u.id}</td>
+          <td>${u.full_name}</td>
+          <td>${u.email}</td>
+          <td>${u.role}</td>
+          <td>
+            <button onclick="deleteUser(${u.id})">Delete</button>
+          </td>
+        </tr>`;
+    });
+  });
+
+/* ---------------- LOAD PATIENTS ---------------- */
+fetch(API + "/doctor/patients")
+  .then(res => res.json())
+  .then(data => {
+    const table = document.getElementById("patientsTable");
+    data.forEach(p => {
+      table.innerHTML += `
+        <tr>
+          <td>${p.full_name}</td>
+          <td>${p.height}</td>
+          <td>${p.weight}</td>
+          <td>${p.temperature}</td>
+          <td>${p.heart_rate}</td>
+          <td>${p.status}</td>
+        </tr>`;
+    });
+  });
+
+/* ---------------- LOAD STAFF ---------------- */
+fetch(API + "/admin/users")
+  .then(res => res.json())
+  .then(data => {
+    const table = document.getElementById("staffTable");
+    data
+      .filter(u => u.role !== "patient")
+      .forEach(u => {
+        table.innerHTML += `
+          <tr>
+            <td>${u.full_name}</td>
+            <td>${u.email}</td>
+            <td>${u.role}</td>
+          </tr>`;
+      });
+  });
+
+/* ---------------- DELETE USER ---------------- */
+function deleteUser(id) {
+  if (!confirm("Delete this user?")) return;
+
+  fetch(API + "/admin/delete/" + id, { method: "DELETE" })
+    .then(() => location.reload());
+}
+
+/* ---------------- LOGOUT ---------------- */
+function logout() {
+  localStorage.clear();
+  location.href = "index.html";
+}
+</script>
+
+</body>
+</html>

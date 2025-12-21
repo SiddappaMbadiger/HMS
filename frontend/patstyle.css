@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background: #f4f7fb;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 220px;
+  background: #0b3c5d;
+  color: #fff;
+  padding: 20px;
+}
+
+.brand {
+  margin-bottom: 30px;
+  font-size: 22px;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.menu li:hover {
+  background: #145a86;
+}
+
+.logout-btn {
+  margin-top: 30px;
+  width: 100%;
+  padding: 10px;
+  background: #fff;
+  color: #0b3c5d;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+/* ================= MAIN ================= */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  background: #ffffff;
+  padding: 15px 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.content {
+  padding: 25px;
+  overflow-y: auto;
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #0b3c5d;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+.card ul li {
+  margin-bottom: 8px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  text-align: center;
+  background: #0b3c5d;
+  color: #fff;
+  padding: 10px;
+  margin-top: auto;
+}

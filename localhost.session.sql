@@ -1,0 +1,7 @@
+show databases;
+
+use ssdbmd;
+
+
+
+

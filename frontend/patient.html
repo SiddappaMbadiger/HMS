@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HDMS | Patient Dashboard</title>
+  <link rel="stylesheet" href="patstyle.css">
+</head>
+<body>
+
+<!-- ================= SIDEBAR ================= -->
+<aside class="sidebar">
+  <h1 class="brand">HDMS</h1>
+
+  <ul class="menu">
+    <li>Dashboard</li>
+    <li>Health Info</li>
+    <li>Education</li>
+    <li>Contact</li>
+  </ul>
+
+  <button class="logout-btn" onclick="logout()">Logout</button>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+
+  <header class="topbar">
+    <h2>Patient Dashboard</h2>
+  </header>
+
+  <section class="content">
+
+    <!-- Welcome -->
+    <div class="card">
+      <h3>Welcome to HDMS</h3>
+      <p>
+        HDMS (Health Data Management System) helps you monitor your health,
+        understand normal readings, and stay connected with hospital staff.
+      </p>
+    </div>
+
+    <!-- Normal Health Readings -->
+    <div class="card">
+      <h3>Normal Health Readings</h3>
+      <ul>
+        <li>🌡 Body Temperature: <b>36.5°C – 37.5°C</b></li>
+        <li>❤️ Heart Rate: <b>60 – 100 bpm</b></li>
+        <li>🩸 Blood Pressure: <b>120 / 80 mmHg</b></li>
+        <li>🫁 Oxygen Level: <b>95% – 100%</b></li>
+      </ul>
+    </div>
+
+    <!-- Health Education -->
+    <div class="card">
+      <h3>Health Education</h3>
+      <ul>
+        <li>🥗 Eat balanced and nutritious food</li>
+        <li>🚶 Exercise at least 30 minutes daily</li>
+        <li>💧 Drink enough water</li>
+        <li>😴 Sleep 7–8 hours every day</li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div class="card">
+      <h3>Contact Hospital</h3>
+      <p>Email: <b>support@hdms.com</b></p>
+      <p>Phone: <b>+91 98765 43210</b></p>
+      <p>Location: <b>Bengaluru, India</b></p>
+    </div>
+
+  </section>
+
+  <footer>
+    © 2025 HDMS | Patient Portal
+  </footer>
+
+</main>
+
+<script>
+  function logout() {
+    localStorage.removeItem("hdmsUser");
+    window.location.href = "index.html";
+  }
+</script>
+
+</body>
+</html>

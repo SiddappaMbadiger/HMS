@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Billing Dashboard</title>
+  <link rel="stylesheet" href="billstyle.css">
+</head>
+<body>
+
+<header>
+  <h2>Billing Dashboard</h2>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<section class="card">
+  <input id="patientId" placeholder="Patient ID">
+  <input id="treatmentId" placeholder="Treatment ID">
+  <input id="amount" placeholder="Amount">
+  <select id="mode">
+    <option>Cash</option>
+    <option>Online</option>
+  </select>
+  <button onclick="saveBill()">Generate Bill</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

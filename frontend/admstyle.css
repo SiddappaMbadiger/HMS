@@ -1,0 +1,100 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f4f7fb;
+}
+
+/* Topbar */
+.topbar {
+  background: #0b3c5d;
+  color: white;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Layout */
+.container {
+  display: flex;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: #1e2a38;
+  min-height: calc(100vh - 60px);
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+}
+
+.sidebar li:hover {
+  background: #314a60;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 25px;
+}
+
+/* Sections */
+.section {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+th {
+  background: #0b3c5d;
+  color: white;
+}
+
+button {
+  padding: 6px 10px;
+  border: none;
+  background: #c0392b;
+  color: white;
+  cursor: pointer;
+}
+
+/* Settings */
+.settings li {
+  margin: 10px 0;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #0b3c5d;
+  color: white;
+  padding: 10px;
+}

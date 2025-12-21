@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HDMS – Hospital Management System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= LEFT SIDEBAR ================= -->
+<aside class="sidebar">
+  <h1 class="brand">HDMS</h1>
+
+  <ul class="menu">
+
+    <li onclick="openPopup('aboutPopup')"><i class="fa fa-info-circle"></i> About</li>
+    <li onclick="openPopup('doctorsPopup')"><i class="fa fa-user-md"></i> Doctors</li>
+    <li onclick="openPopup('faqPopup')"><i class="fa fa-question-circle"></i> FAQ</li>
+    <li onclick="openPopup('contactPopup')"><i class="fa fa-phone"></i> Contact</li>
+  </ul>
+
+  <button class="login-btn" onclick="openPopup('loginPopup')">Login</button>
+</aside>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main class="main-content">
+  <img src="Logo.png"
+       class="hospital-img"
+       alt="Hospital Image">
+</main>
+
+<!-- ================= OVERLAY ================= -->
+
+<div id="overlay" onclick="closeAllPopups()"></div>
+
+<!-- ================= LOGIN POPUP ================= -->
+<div class="popup" id="loginPopup">
+  <h2>Login</h2>
+
+ <select id="loginRole">
+  <option value="patient">Patient</option>
+  <option value="admin">Admin</option>
+  <option value="doctor">Doctor</option>
+  <option value="nurse">Nurse</option>
+  <option value="billing">Billing</option>
+  <option value="receptionist">Receptionist</option>
+</select>
+
+<input type="email" id="loginEmail" placeholder="Email">
+<input type="password" id="loginPassword" placeholder="Password">
+
+<button onclick="loginUser()">Login</button>
+
+
+
+  <p class="link" onclick="switchToRegister()">New patient? Register</p>
+</div>
+
+
+<!-- ================= REGISTER POPUP ================= -->
+
+<div class="popup" id="registerPopup">
+  <h2>Patient Registration</h2>
+
+  <input id="regName" placeholder="Full Name">
+<input id="regEmail" placeholder="Email">
+<input id="regPassword" placeholder="Password">
+<button onclick="registerPatient()">Register</button>
+
+
+  <p class="link" onclick="switchToLogin()">Already registered? Login</p>
+</div>
+
+
+<!-- ================= ABOUT ================= -->
+<div class="popup" id="aboutPopup">
+  <h2>About HDMS</h2>
+  <p>
+The Health Data Management System (HDMS) is a web-based healthcare information platform designed to digitally manage and streamline patient health records in a hospital environment. Our project focuses on providing a centralized, secure, and efficient system that connects patients, nurses, doctors, and administrators on a single digital platform.
+HDMS enables accurate collection, storage, and monitoring of patient health data such as vital signs, diagnoses, treatments, and billing information. Nurses can record real-time patient vitals, doctors can analyze these records and prescribe treatments, billing staff can generate invoices based on treatments, and administrators can oversee the complete hospital operations. This integrated workflow reduces paperwork, minimizes human errors, and improves decision-making in healthcare services.
+The system is developed using modern web technologies and a structured database to ensure data integrity, scalability, and ease of access. By simulating real-world hospital processes, HDMS demonstrates how digital transformation can enhance healthcare efficiency, patient safety, and service quality.
+Our goal is to bridge the gap between traditional hospital record-keeping and modern digital healthcare systems by offering a reliable, user-friendly, and role-based health data management solution suitable for academic learning as well as real-world application.
+  </p>
+
+  <p><b>Email:</b> siddappambadiger051@gmail.com</p>
+  <p><b>Location:</b> Bengaluru, India 560064</p>
+</div>
+
+<!-- ================= DOCTORS ================= -->
+<div class="popup" id="doctorsPopup">
+  <h2>Our Specialists</h2>
+  <ul>
+    <li>👨‍⚕️ Dr. Ramesh – Cardiologist (20+ yrs)</li>
+    <li>👩‍⚕️ Dr. Anitha – Neurologist</li>
+    <li>👨‍⚕️ Dr. Suresh – Orthopedic</li>
+  </ul>
+</div>
+
+<!-- ================= FAQ ================= -->
+<div class="popup" id="faqPopup">
+  <h2>FAQ</h2>
+  <p><b>Q:</b> Is HDMS free for patients?<br><b>A:</b> Yes.</p>
+  <p><b>Q:</b> Is data secure?<br><b>A:</b> Yes, fully encrypted.</p>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="popup" id="contactPopup">
+  <h2>Contact Us</h2>
+  <input type="text" placeholder="Your Name">
+  <input type="email" placeholder="Your Email">
+  <textarea placeholder="Your Message"></textarea>
+  <button>Send</button>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  © 2025 HDMS | Secure Hospital Management System by Team Siddappa
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

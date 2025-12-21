@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HDMS | Nurse Dashboard</title>
+  <link rel="stylesheet" href="nurstyle.css">
+</head>
+<body>
+
+<header class="navbar">
+  <h2>HDMS – Nurse Dashboard</h2>
+  <button onclick="logout()">Logout</button>
+</header>
+
+<main class="container">
+
+  <section class="card">
+    <h3>Enter Patient Vitals</h3>
+
+    <label>Patient ID</label>
+    <input type="number" id="patientId" required>
+
+    <label>Blood Pressure</label>
+    <input type="text" id="bp" placeholder="120/80" required>
+
+    <label>Heart Rate (bpm)</label>
+    <input type="number" id="hr" required>
+
+    <label>Temperature (°C)</label>
+    <input type="number" step="0.1" id="temp" required>
+
+    <label>Status</label>
+    <select id="status">
+      <option value="Normal">Normal</option>
+      <option value="Critical">Critical</option>
+      <option value="Under Observation">Under Observation</option>
+    </select>
+
+    <button onclick="saveVitals()">Save Vitals</button>
+
+    <p id="msg"></p>
+  </section>
+
+</main>
+
+<footer>
+  © 2025 HDMS | Nurse Module
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
